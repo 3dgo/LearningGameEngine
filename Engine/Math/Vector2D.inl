@@ -40,3 +40,8 @@ Vector2D& Vector2D::operator-=(const Vector2D& right)
 	y -= right.y;
 	return *this;
 }
+
+float Vector2D::dot(const Vector2D& left, const Vector2D& right)
+{
+	return -1;
+}

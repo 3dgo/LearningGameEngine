@@ -11,11 +11,13 @@ namespace Math
 		inline Vector2D& operator=(const Vector2D& right);
 		inline Vector2D& operator+=(const Vector2D& right);
 		inline Vector2D& operator-=(const Vector2D& right);
+
+		static float dot(const Vector2D& left, const Vector2D& right);
 	};
 
 	inline Vector2D operator+(const Vector2D& left, const Vector2D& right);
 	inline Vector2D operator*(float scalar, const Vector2D& vector);
-	inline Vector2D operator*(const Vector2D& vector, float scalar); 
+	inline Vector2D operator*(const Vector2D& vector, float scalar);
 
 	#include "Vector2D.inl"
 }
