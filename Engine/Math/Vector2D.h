@@ -11,8 +11,6 @@ namespace Math
 		inline Vector2D& operator=(const Vector2D& right);
 		inline Vector2D& operator+=(const Vector2D& right);
 		inline Vector2D& operator-=(const Vector2D& right);
-
-		static float dot(const Vector2D& left, const Vector2D& right);
 	};
 
 	inline Vector2D operator+(const Vector2D& left, const Vector2D& right);

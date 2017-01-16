@@ -1,7 +1,6 @@
 #include <gl\glew.h>
 #include "MyGlWindow.h"
 #include <cassert>
-#include <Qt3DInput\QKeyEvent>
 #include <Math\Vector2D.h>
 #include <Timing\Clock.h>
 using Math::Vector2D;
@@ -9,11 +8,11 @@ using Timing::Clock;
 
 namespace
 {
-	static float verts[] =
+	static Vector2D verts[] =
 	{
-		0.0f, 0.1f,
-		-0.1f, -0.1f,
-		0.1f, -0.1f
+		Vector2D(0.0f, 0.1f),
+		Vector2D(-0.1f, -0.1f),
+		Vector2D(0.1f, -0.1f),
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
@@ -70,6 +69,7 @@ void MyGlWindow::myUpdate()
 void MyGlWindow::checkKeyState()
 {
 	GetAsyncKeyState(VK_UP);
+	
 }
 
 bool MyGlWindow::initialize()
