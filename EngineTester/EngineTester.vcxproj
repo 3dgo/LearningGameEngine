@@ -157,6 +157,9 @@
     <ClCompile Include="MyMain.cpp" />
     <ClCompile Include="Vector2DTests.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HelperFunctions.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
