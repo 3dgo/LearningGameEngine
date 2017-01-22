@@ -19,7 +19,7 @@ protected:
 
 private slots:
 	void myUpdate();
-	void checkKeyState();
+	void updateVelocity();
 
 public:
 	bool initialize();
