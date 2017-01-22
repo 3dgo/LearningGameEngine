@@ -1,14 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Math\Vector2D.h" />
-    <ClInclude Include="Timing\Clock.h" />
-    <ClInclude Include="Math\Matrix2D.h" />
+    <ClInclude Include="Math\Matrix2D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector2D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Timing\Clock.h">
+      <Filter>Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2D.inl">
+      <Filter>Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Math\Vector2D.inl" />
+    <Filter Include="Math">
+      <UniqueIdentifier>{cf7ed44d-a467-4614-bbbe-b78ecd1e07d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timing">
+      <UniqueIdentifier>{45359da9-d0aa-477d-be60-fc6d807effac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Timing\Clock.cpp" />
+    <None Include="Math\Vector2D.inl">
+      <Filter>Math</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Timing\Clock.cpp">
+      <Filter>Timing</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -64,7 +64,7 @@ void MyGlWindow::myUpdate()
 {
 	clock.newFrame();
 	updateVelocity();
-	shipPosition = shipPosition + shipVelocity * clock.timeElapsedLastFrame();
+	shipPosition += shipVelocity * clock.timeElapsedLastFrame();
 	repaint();
 }
 

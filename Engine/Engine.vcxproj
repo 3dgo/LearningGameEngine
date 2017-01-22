@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Math\Matrix2D.h" />
     <ClInclude Include="Math\Vector2D.h" />
+    <ClInclude Include="Matrix2D.inl" />
     <ClInclude Include="Timing\Clock.h" />
   </ItemGroup>
   <ItemGroup>
