@@ -16,7 +16,7 @@ namespace
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
-	Vector2D shipPosition(-1.0f, -1.0f);
+	Vector2D shipPosition;
 	Clock clock;
 }
 
@@ -62,13 +62,26 @@ void MyGlWindow::paintGL()
 void MyGlWindow::myUpdate()
 {
 	clock.newFrame();
+
+	Vector2D velocity;
+	shipPosition = shipPosition + velocity * clock.timeElapsedLastFrame();
+
 	checkKeyState();
 	repaint();
 }
 
 void MyGlWindow::checkKeyState()
 {
-	GetAsyncKeyState(VK_UP);
+	const float SPEED = 0.02f;
+	
+	if (GetAsyncKeyState(VK_UP))
+		shipPosition.y += SPEED;
+	if (GetAsyncKeyState(VK_DOWN))
+		shipPosition.y -= SPEED;
+	if (GetAsyncKeyState(VK_RIGHT))
+		shipPosition.x += SPEED;
+	if (GetAsyncKeyState(VK_LEFT))
+		shipPosition.x -= SPEED;
 	
 }
 
