@@ -39,27 +39,6 @@ TEST(Vector2D, ScalarMultiplication)
 	EXPECT_FLOAT_EQ(result1.y, result2.y);
 }
 
-TEST(Vector2D, CopyConstructor)
-{
-	Vector2D source(5, -1234.5678f);
-	Vector2D theCopy(source);
-	EXPECT_FLOAT_EQ(source.x, theCopy.x);
-	EXPECT_FLOAT_EQ(source.y, theCopy.y);
-}
-
-TEST(Vector2D, AssignmentOperators)
-{
-	Vector2D source(5, -1234.5678f);
-	Vector2D another(1, 1);
-	EXPECT_FLOAT_EQ(another.x, 1);
-	EXPECT_FLOAT_EQ(another.y, 1);
-	another = source;
-	EXPECT_FLOAT_EQ(another.x, source.x);
-	EXPECT_FLOAT_EQ(another.y, source.y);
-	EXPECT_FLOAT_EQ(another.x, 5);
-	EXPECT_FLOAT_EQ(another.y, -1234.5678f);
-}
-
 TEST(Vector2D, AssignmentPlusEquals)
 {
 	Vector2D source(5, -1234.5678f);
