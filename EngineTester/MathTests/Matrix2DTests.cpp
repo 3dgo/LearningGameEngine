@@ -40,10 +40,10 @@ TEST(Matrix2D, Rotation)
 	EXPECT_FLOAT_EQ(op.r1c1, -1);
 
 	op = Matrix2D::rotate(PI / 2);
-	EXPECT_TRUE(closeEnough(op.r0c0, 0));;
+	EXPECT_TRUE(closeEnough(op.r0c0, 0));
 	EXPECT_FLOAT_EQ(op.r0c1, -1);
 	EXPECT_FLOAT_EQ(op.r1c0, 1);
-	EXPECT_TRUE(closeEnough(op.r1c1, 0));;
+	EXPECT_TRUE(closeEnough(op.r1c1, 0));
 
 	const float sqrt2Over2 = sqrt(2.0f) / 2.0f;
 	op = Matrix2D::rotate(PI / 4);

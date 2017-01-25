@@ -17,6 +17,12 @@ TEST(Vector3D, Construction)
 
 TEST(Vector3D, VectorAddition)
 {
+	Vector3D first(9, -2, 5);
+	Vector3D second(-4, 5.4f, 7);
+	Vector3D result = first + second;
+	EXPECT_FLOAT_EQ(result.x, 5);
+	EXPECT_FLOAT_EQ(result.y, 3.4f);
+	EXPECT_FLOAT_EQ(result.z, 12);
 }
 
 TEST(Vector3D, ScalarMultiplication)
@@ -33,4 +39,23 @@ TEST(Vector3D, ScalarMultiplication)
 	EXPECT_FLOAT_EQ(multiplied2.y, multiplied1.y);
 	EXPECT_FLOAT_EQ(multiplied2.z, multiplied1.z);
 
+}
+
+TEST(Vector3D, AssignmentPlusEquals)
+{
+	Vector3D source(5, -1234.5678f, 763.123f);
+	Vector3D another(1, 1, 125.543f);
+	another += source;
+	EXPECT_FLOAT_EQ(another.x, 6);
+	EXPECT_FLOAT_EQ(another.y, -1233.5678f);
+	EXPECT_FLOAT_EQ(another.z, 888.666f);
+}
+
+TEST(Vector3D, AssignmentMinusEquals)
+{
+	Vector3D source(5, -1234.5678f);
+	Vector3D another(1, 1);
+	another -= source;
+	EXPECT_FLOAT_EQ(another.x, -4);
+	EXPECT_FLOAT_EQ(another.y, 1235.5678f);
 }

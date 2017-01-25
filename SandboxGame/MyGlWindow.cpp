@@ -15,9 +15,9 @@ namespace
 {
 	static Vector3D verts[] =
 	{
-		Vector3D(0.0f, 0.141421356f),
-		Vector3D(-0.1f, -0.1f),
-		Vector3D(0.1f, -0.1f),
+		Vector3D(0.0f, 0.141421356f, 1),
+		Vector3D(-0.1f, -0.1f, 1),
+		Vector3D(0.1f, -0.1f, 1),
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
@@ -59,12 +59,16 @@ void MyGlWindow::paintGL()
 	glViewport(viewportLocation.x, viewportLocation.y, minSize, minSize);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
 	Vector3D transformedVerts[NUM_VERTS];
-	Matrix3D op = Matrix3D::rotate(shipOrientation);
+	Matrix3D translator = Matrix3D::translate(shipPosition.x, shipPosition.y);
+	Matrix3D rotator = Matrix3D::rotateZ(shipOrientation);
+
+	Matrix3D op = translator * rotator;
+	
 	for (unsigned int i = 0; i < NUM_VERTS; i++)
-		transformedVerts[i] = shipPosition + op * verts[i];
+		transformedVerts[i] = op * verts[i];
 
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(transformedVerts), transformedVerts);
 
@@ -95,7 +99,7 @@ void MyGlWindow::updateVelocity()
 	const float ACCELERATION = 0.5f * clock.timeElapsedLastFrame();
 
 	Vector3D straightUpForMyShip(0, 1);
-	Matrix3D op = Matrix2D::rotate(shipOrientation);
+	Matrix3D op = Matrix3D::rotateZ(shipOrientation);
 
  	if (GetAsyncKeyState(VK_UP))
  		shipVelocity += op * straightUpForMyShip * ACCELERATION;
