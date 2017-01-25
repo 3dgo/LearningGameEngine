@@ -3,11 +3,24 @@
   <ItemGroup>
     <ClCompile Include="MyMain.cpp" />
     <ClCompile Include="..\Middleware\gtest\src\gtest-all.cc" />
-    <ClCompile Include="Vector2DTests.cpp" />
     <ClCompile Include="ClockTest.cpp" />
-    <ClCompile Include="Matrix2DTests.cpp" />
+    <ClCompile Include="MathTests\Matrix2DTests.cpp">
+      <Filter>MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Vector2DTests.cpp">
+      <Filter>MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Vector3DTests.cpp">
+      <Filter>MathTests</Filter>
+    </ClCompile>
+    <ClCompile Include="MathTests\Matrix3DTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelperFunctions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MathTests">
+      <UniqueIdentifier>{690e5d6d-5b57-48fe-a8e6-207d55831f47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

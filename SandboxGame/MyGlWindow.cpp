@@ -1,28 +1,28 @@
 #include <gl\glew.h>
 #include "MyGlWindow.h"
 #include <cassert>
-#include <Math\Vector2D.h>
-#include <Math\Matrix2D.h>
+#include <Math\Vector3D.h>
+#include <Math\Matrix3D.h>
 #include <Timing\Clock.h>
 
-using Math::Vector2D;
-using Math::Matrix2D;
+using Math::Vector3D;
+using Math::Matrix3D;
 using Timing::Clock;
 
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 
 namespace
 {
-	static Vector2D verts[] =
+	static Vector3D verts[] =
 	{
-		Vector2D(0.0f, 0.1f),
-		Vector2D(-0.1f, -0.1f),
-		Vector2D(0.1f, -0.1f),
+		Vector3D(0.0f, 0.141421356f),
+		Vector3D(-0.1f, -0.1f),
+		Vector3D(0.1f, -0.1f),
 	};
 
 	const unsigned int NUM_VERTS = sizeof(verts) / sizeof(*verts);
-	Vector2D shipPosition;
-	Vector2D shipVelocity;
+	Vector3D shipPosition;
+	Vector3D shipVelocity;
 	float shipOrientation = 0.0f;
 	Clock clock;
 }
@@ -53,7 +53,7 @@ void MyGlWindow::initializeGL()
 void MyGlWindow::paintGL()
 {
 	int minSize = min(width(), height());
-	Vector2D viewportLocation;
+	Vector3D viewportLocation;
 	viewportLocation.x = width() / 2 - minSize / 2;
 	viewportLocation.y = height() / 2 - minSize / 2;
 	glViewport(viewportLocation.x, viewportLocation.y, minSize, minSize);
@@ -61,10 +61,10 @@ void MyGlWindow::paintGL()
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-	Vector2D transformedVerts[NUM_VERTS];
-	Matrix2D op = Matrix2D::rotate(shipOrientation);
+	Vector3D transformedVerts[NUM_VERTS];
+	Matrix3D op = Matrix3D::rotate(shipOrientation);
 	for (unsigned int i = 0; i < NUM_VERTS; i++)
-		transformedVerts[i] = op * verts[i];
+		transformedVerts[i] = shipPosition + op * verts[i];
 
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(transformedVerts), transformedVerts);
 
@@ -93,11 +93,12 @@ void MyGlWindow::rotateShip()
 void MyGlWindow::updateVelocity()
 {
 	const float ACCELERATION = 0.5f * clock.timeElapsedLastFrame();
-// 
-// 	if (GetAsyncKeyState(VK_UP))
-// 		shipVelocity.y += ACCELERATION;
-// 	if (GetAsyncKeyState(VK_DOWN))
-// 		shipVelocity.y -= ACCELERATION;
+
+	Vector3D straightUpForMyShip(0, 1);
+	Matrix3D op = Matrix2D::rotate(shipOrientation);
+
+ 	if (GetAsyncKeyState(VK_UP))
+ 		shipVelocity += op * straightUpForMyShip * ACCELERATION;
 }
 
 bool MyGlWindow::initialize()

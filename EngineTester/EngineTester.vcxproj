@@ -153,9 +153,11 @@
   <ItemGroup>
     <ClCompile Include="..\Middleware\gtest\src\gtest-all.cc" />
     <ClCompile Include="ClockTest.cpp" />
-    <ClCompile Include="Matrix2DTests.cpp" />
+    <ClCompile Include="MathTests\Matrix2DTests.cpp" />
+    <ClCompile Include="MathTests\Matrix3DTests.cpp" />
     <ClCompile Include="MyMain.cpp" />
-    <ClCompile Include="Vector2DTests.cpp" />
+    <ClCompile Include="MathTests\Vector2DTests.cpp" />
+    <ClCompile Include="MathTests\Vector3DTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelperFunctions.h" />

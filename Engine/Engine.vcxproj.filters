@@ -10,7 +10,16 @@
     <ClInclude Include="Timing\Clock.h">
       <Filter>Timing</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix2D.inl">
+    <ClInclude Include="Math\Constants.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix2D.inl">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix3D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector3D.h">
       <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
@@ -24,6 +33,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Math\Vector2D.inl">
+      <Filter>Math</Filter>
+    </None>
+    <None Include="Math\Matrix3D.inl">
+      <Filter>Math</Filter>
+    </None>
+    <None Include="Math\Vector3D.inl">
       <Filter>Math</Filter>
     </None>
   </ItemGroup>

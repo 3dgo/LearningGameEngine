@@ -2,7 +2,7 @@
 #include "Math\Vector2D.h"
 using Math::Vector2D;
 
-TEST(Vector2D, Constructor)
+TEST(Vector2D, Construction)
 {
 	Vector2D first(1, 2);
 	EXPECT_FLOAT_EQ(1, first.x);
